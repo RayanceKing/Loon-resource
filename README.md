@@ -1,1 +1,1 @@
-# Loon-plugins
+# Loon-resource

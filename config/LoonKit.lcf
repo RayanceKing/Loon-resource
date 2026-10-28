@@ -1,0 +1,228 @@
+# LoonKit v1.0.0
+# Maintainer: @RayanceKing
+# GitHub: https://github.com/RayanceKing/Loon-resource
+# Community configuration; not affiliated with Loon.
+
+[General]
+# DNS：优先使用 AliDNS DoH；普通 DNS 回退由 Loon 应用设置控制。
+dns-server = 223.5.5.5,223.6.6.6
+doh-server = https://dns.adguard.com/dns-query
+real-ip = 149.119.189.173,*.apple.com,*.icloud.com,dns.msftncsi.com,*.srv.nintendo.net,*.xboxlive.com
+mitm-on-wifi-access = true
+hijack-dns = *:53
+# DNS 劫持覆盖 UDP/53，不包含应用内置的 DoH/DoT 请求。
+ip-mode = dual
+ipv6-vif = auto
+dns-server = system
+sni-sniffing = true
+disable-stun = true
+dns-reject-mode = LoopbackIP
+domain-reject-mode = DNS
+udp-fallback-mode = REJECT
+wifi-access-http-port = 7222
+wifi-access-socks5-port = 7221
+allow-wifi-access = true
+interface-mode = auto
+test-timeout = 2
+disconnect-on-policy-change = false
+switch-node-after-failure-times = 3
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
+proxy-test-url = http://www.gstatic.com/generate_204
+resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
+geoip-url = https://geodata.kelee.one/Country-Masaiki.mmdb
+ipasn-url = https://geodata.kelee.one/GeoLite2-ASN-P3TERX.mmdb
+skip-proxy = 127.0.0.0/8,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.local,e.crashlynatics.com
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
+
+[Proxy]
+德州 = Socks5,149.119.189.173,443,qkX51103188,"daCBNLin",udp=true,block-quic=true
+
+[Remote Proxy]
+# 节点和订阅由用户自行添加。
+
+[Remote Filter]
+香港节点 = NameRegex, FilterKey = "^(?=.*((?i)🇭🇰|香港|(\b(HK|HKG|Hong)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+台湾节点 = NameRegex, FilterKey = "^(?=.*((?i)🇹🇼|台湾|(\b(TW|TWN|Tai|Taiwan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+日本节点 = NameRegex, FilterKey = "^(?=.*((?i)🇯🇵|日本|川日|东京|大阪|泉日|埼玉|(\b(JP|JPN|Japan)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+韩国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇰🇷|韩国|韓|首尔|(\b(KR|KOR|Korea)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+狮城节点 = NameRegex, FilterKey = "^(?=.*((?i)🇸🇬|新加坡|狮|(\b(SG|SGP|Singapore)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+美国节点 = NameRegex, FilterKey = "^(?=.*((?i)🇺🇸|美国|CF|波特兰|达拉斯|俄勒冈|凤凰城|费利蒙|硅谷|拉斯维加斯|洛杉矶|圣何塞|圣克拉拉|西雅图|芝加哥|(\b(US|USA|United States)(\d+)?\b)))(?!.*((?i)回国|校园|游戏|🎮|(\b(GAME)\b))).*$"
+游戏节点 = NameRegex, FilterKey = "^(?=.*((?i)游戏|🎮|(\b(GAME)(\d+)?\b)))(?!.*((?i)回国|校园)).*$"
+全球节点 = NameRegex, FilterKey = "^(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|超时|收藏|福利|邀请|好友|(\b(USE|USED|TOTAL|EXPIRE|EMAIL|Panel|Channel|Author|Traffic)(\d+)?\b|(\d{4}-\d{2}-\d{2}|\dG)))).*$"
+
+[Proxy Group]
+# --------------------------------
+# 基础策略
+Proxy = select,Auto,Fallback,ALL_Filter,img-url = https://raw.githubusercontent.com/YohakuSama/loonkit/97c48a5d14087597dbba35119d5ee8d43b1ce537/icons/v20261021r1/Proxy.png
+Auto = url-test,Auto_Filter,url = http://cp.cloudflare.com/generate_204,interval = 600,tolerance = 60,img-url = https://raw.githubusercontent.com/YohakuSama/loonkit/97c48a5d14087597dbba35119d5ee8d43b1ce537/icons/v20261021r1/Auto.png
+Fallback = fallback,Fallback_Filter,url = http://cp.cloudflare.com/generate_204,interval = 900,max-timeout = 2200,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+Final = select,Proxy,Auto,Fallback,DIRECT,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+# --------------------------------
+# 地区策略
+香港手动策略 = select,香港节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+台湾手动策略 = select,台湾节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+日本手动策略 = select,日本节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+韩国手动策略 = select,韩国节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+狮城手动策略 = select,狮城节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+美国手动策略 = select,美国节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+美国静态策略 = select,美国静态策略,美国手动策略,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+游戏手动策略 = select,游戏节点,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+全球手动策略 = select,全球节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+香港自动策略 = select,香港时延优选,香港故障转移,香港负载均衡,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+台湾自动策略 = select,台湾时延优选,台湾故障转移,台湾负载均衡,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+日本自动策略 = select,日本时延优选,日本故障转移,日本负载均衡,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+韩国自动策略 = select,韩国时延优选,韩国故障转移,韩国负载均衡,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+狮城自动策略 = select,狮城时延优选,狮城故障转移,狮城负载均衡,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+美国自动策略 = select,美国时延优选,美国故障转移,美国负载均衡,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# 自动策略
+香港时延优选 = url-test,香港节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+台湾时延优选 = url-test,台湾节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+日本时延优选 = url-test,日本节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+韩国时延优选 = url-test,韩国节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+狮城时延优选 = url-test,狮城节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+美国时延优选 = url-test,美国节点,interval = 60,tolerance = 50,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+
+香港故障转移 = fallback,香港节点,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+台湾故障转移 = fallback,台湾节点,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+日本故障转移 = fallback,日本节点,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+韩国故障转移 = fallback,韩国节点,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+狮城故障转移 = fallback,狮城节点,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+美国故障转移 = fallback,美国节点,interval = 60,max-timeout = 2000,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+
+香港负载均衡 = load-balance,香港节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
+台湾负载均衡 = load-balance,台湾节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/TW.png
+日本负载均衡 = load-balance,日本节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/JP.png
+韩国负载均衡 = load-balance,韩国节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
+狮城负载均衡 = load-balance,狮城节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
+美国负载均衡 = load-balance,美国节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
+# --------------------------------
+# 兜底策略后备
+兜底后备策略 = select,香港自动策略,台湾自动策略,日本自动策略,狮城自动策略,美国自动策略,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+
+[Proxy Chain]
+美国静态策略 = 美国手动策略, udp=true
+
+[Rule]
+DOMAIN-KEYWORD,hanimeone,狮城手动策略
+DOMAIN-KEYWORD,ipleak,美国手动策略
+DOMAIN-KEYWORD,comic18j-codi,狮城自动策略
+DOMAIN-KEYWORD,duckduckgo,香港负载均衡
+DOMAIN-KEYWORD,dmm.com,日本自动策略
+DOMAIN-KEYWORD,dmm.co.jp,日本自动策略
+DOMAIN-KEYWORD,garyshare,狮城自动策略
+DOMAIN-KEYWORD,ippure,美国手动策略
+DOMAIN-KEYWORD,emby.bangumi,狮城自动策略
+DOMAIN-KEYWORD,random.ouonet,狮城手动策略
+DOMAIN-KEYWORD,media.nijigem,狮城手动策略
+DOMAIN-KEYWORD,ouo,DIRECT
+DOMAIN,www.formula1.com,美国自动策略
+DOMAIN-KEYWORD,icloud,DIRECT
+DOMAIN-KEYWORD,ping0.cc,美国静态策略
+DOMAIN,updates.cdn-apple.com,DIRECT
+DOMAIN-KEYWORD,appstorrent,DIRECT
+DOMAIN,query.ess.apple.com,DIRECT
+DOMAIN-KEYWORD,notability,狮城自动策略
+DOMAIN,msmp.abchina.com.cn,REJECT
+DOMAIN-KEYWORD,hotmail,DIRECT
+DOMAIN-KEYWORD,goodnotes,狮城自动策略
+# Local Rule
+# Type:DOMAIN-SUFFIX,DOMAIN,DOMAIN-KEYWORD,USER-AGENT,URL-REGEX,IP-CIDR,IP-CIDR6,IP-ASN
+# Strategy:DIRECT,Proxy,REJECT
+# Options:no-resolve(no-resolve(only for cidr))
+# IP-CIDR, 192.168.0.0/16, DIRECT
+# IP-CIDR, 10.0.0.0/8, DIRECT
+# IP-CIDR, 172.16.0.0/12, DIRECT
+# IP-CIDR, 127.0.0.0/8, DIRECT
+# 配置文件已自带远程GEOIP, cn, DIRECT规则，请勿在此添加
+# 请勿修改远程CN REGION规则的排序甚至删除
+IP-CIDR,28.0.0.1/8,DIRECT
+IP-CIDR,198.18.0.1/16,DIRECT
+IP-CIDR,198.18.0.0/15,DIRECT
+IP-CIDR6,fc00::/18,DIRECT
+FINAL,狮城自动策略
+
+[Remote Rule]
+https://raw.githubusercontent.com/yuumimi/rules/release/loon/18comic.txt, policy=狮城自动策略, tag=18comic, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/iCloudPrivateRelay/iCloudPrivateRelay.list, policy=美国手动策略, tag=iCloudPrivateRelay, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=美国手动策略, tag=AI, enabled=true
+https://rule.kelee.one/Loon/AppleTV.lsr, policy=美国手动策略, tag=AppleTV, enabled=true
+https://raw.githubusercontent.com/ddgksf2013/Filter/refs/heads/master/AppleIntelligence.list, policy=美国手动策略, tag=Apple Intelligence, enabled=true
+https://raw.githubusercontent.com/iniwex5/tools/refs/heads/main/rules/UK-wifi-call.list, policy=全球手动策略, tag=UK-wifi-call, enabled=true
+https://rule.kelee.one/Loon/Telegram.lsr, policy=香港自动策略, tag=Telegram, enabled=true
+https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy=美国手动策略, tag=TikTok, enabled=true
+https://rule.kelee.one/Loon/GitHub.lsr, policy=香港自动策略, tag=GitHub, enabled=true
+https://rule.kelee.one/Loon/Netflix.lsr, policy=狮城手动策略, tag=Netflix, enabled=true
+https://rule.kelee.one/Loon/YouTube.lsr, policy=美国手动策略, tag=Youtube, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, policy=美国手动策略, tag=Google, enabled=true
+https://rule.kelee.one/Loon/Disney.lsr, policy=美国手动策略, tag=Disney, enabled=true
+https://rule.kelee.one/Loon/Twitter.lsr, policy=美国手动策略, tag=Twitter, enabled=true
+https://rule.kelee.one/Loon/Instagram.lsr, policy=美国手动策略, tag=Instagram, enabled=true
+https://rule.kelee.one/Loon/Whatsapp.lsr, policy=美国手动策略, tag=Whatsapp, enabled=true
+https://rule.kelee.one/Loon/Facebook.lsr, policy=美国手动策略, tag=Facebook, enabled=true
+https://rule.kelee.one/Loon/Spotify.lsr, policy=香港自动策略, tag=Spotify, enabled=true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy=香港时延优选, tag=OneDrive, enabled=true
+https://rule.kelee.one/Loon/WeChat.lsr, policy=DIRECT, tag=WeChat, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, policy=DIRECT, tag=Apple Account, enabled=true
+https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, policy=DIRECT, tag=App Store, enabled=true
+https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
+https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
+
+[Host]
+
+[Rewrite]
+
+[Script]
+
+[Plugin]
+https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, pin=true, enabled=true
+https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=香港自动策略, enabled=true
+https://github.com/DualSubs/YouTube/releases/latest/download/DualSubs.YouTube.plugin, enabled=true
+https://github.com/Biliverse/Redirect/releases/latest/download/BiliBili.Redirect.plugin, enabled=true
+https://github.com/Biliverse/Enhanced/releases/latest/download/Biliverse.Enhanced.plugin, enabled=true
+https://github.com/Biliverse/Global/releases/latest/download/BiliBili.Global.plugin, enabled=true
+https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.plugin, enabled=true
+https://raw.githubusercontent.com/RayanceKing/Loon-plugins/refs/heads/main/infuse/danmaku-tmdb-fix.plugin, enabled=false
+https://kelee.one/Tool/Loon/Lpx/MoeGirlWiki_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_Price.lpx, enabled=true
+https://raw.githubusercontent.com/Roddy-D/Loon_plugins/refs/heads/main/plugin/nodetcpcheck.lpx, policy=美国手动策略, enabled=true
+https://raw.githubusercontent.com/Roddy-D/Loon_plugins/refs/heads/main/plugin/iptest.lpx, enabled=true
+https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.lpx, enabled=true
+https://raw.githubusercontent.com/mekos2772/ios-location-spoofer/refs/heads/main/ios-location-spoofer.lnplugin, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx, enabled=true
+https://github.com/NSRingo/Maps/releases/latest/download/iRingo.Maps.plugin, enabled=true
+https://github.com/Auraflare/DNS/releases/latest/download/Cloudflare.DNS.plugin, enabled=true
+https://raw.githubusercontent.com/RayanceKing/Loon-plugins/main/TIDB%E5%A2%9E%E5%BC%BA.lpx, enabled=true
+http://script.hub/file/_start_/https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.conf/_end_/spotify.sgmodule?type=qx-rewrite&n=Spotify%E4%BC%9A%E5%91%98%E8%A7%A3%E9%94%81%40app2smile+%E8%A7%A3%E9%94%81Premium%E4%BC%9A%E5%91%98&headers=User-Agent:surge&del=true&jqEnabled=true&target=loon-plugin&category=app2smile, enabled=true
+https://ddgksf2013.top/module/ScriptHub.Loon.plugin, enabled=true
+https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/XiaoHeiHe_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/WexinMiniPrograms_Remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weixin_external_links_unlock.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Weixin_Official_Accounts_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/NeteaseCloudMusic_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Taobao_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BaiduNetDisk_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Loon/AllInOne/AllInOne.plugin, enabled=true
+https://github.com/NSRingo/News/releases/latest/download/iRingo.News.plugin, policy=美国自动策略, enabled=false
+https://github.com/NSRingo/GeoServices/releases/latest/download/iRingo.Maps.plugin, enabled=false
+https://kelee.one/Tool/Loon/Lpx/XiaChuFang_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, policy=DIRECT, enabled=true
+https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=false
+https://kelee.one/Tool/Loon/Lpx/Reddit_remove_ads.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Node_detection_tool.lpx, enabled=true
+https://kelee.one/Tool/Loon/Lpx/BoxJs.lpx, policy=兜底后备策略, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Sub-Store.lpx, policy=兜底后备策略, enabled=true
+
+[Mitm]
+hostname =
+skip-server-cert-verify = false
