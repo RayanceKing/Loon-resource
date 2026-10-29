@@ -181,7 +181,6 @@ https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGIO
 [Plugin]
 https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.lpx, enabled=true
 https://github.com/NSRingo/LocationService/releases/latest/download/iRingo.LocationService.plugin, enabled=false
-https://github.com/NSRingo/MapKit/releases/download/v4.7.0-beta1/iRingo.MapKit.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, pin=true, enabled=true
