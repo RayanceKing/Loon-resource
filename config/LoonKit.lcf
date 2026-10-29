@@ -179,6 +179,9 @@ https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGIO
 [Script]
 
 [Plugin]
+https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.lpx, enabled=true
+https://github.com/NSRingo/LocationService/releases/latest/download/iRingo.LocationService.plugin, enabled=false
+https://github.com/NSRingo/MapKit/releases/download/v4.7.0-beta1/iRingo.MapKit.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, pin=true, enabled=true
@@ -188,19 +191,15 @@ https://github.com/Biliverse/Redirect/releases/latest/download/BiliBili.Redirect
 https://github.com/Biliverse/Enhanced/releases/latest/download/Biliverse.Enhanced.plugin, enabled=true
 https://github.com/Biliverse/Global/releases/latest/download/BiliBili.Global.plugin, enabled=true
 https://github.com/Biliverse/ADBlock/releases/latest/download/BiliBili.ADBlock.plugin, enabled=true
-https://raw.githubusercontent.com/RayanceKing/Loon-plugins/refs/heads/main/infuse/danmaku-tmdb-fix.plugin, enabled=false
 https://kelee.one/Tool/Loon/Lpx/MoeGirlWiki_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/JD_Price.lpx, enabled=true
 https://raw.githubusercontent.com/Roddy-D/Loon_plugins/refs/heads/main/plugin/nodetcpcheck.lpx, policy=美国手动策略, enabled=true
 https://raw.githubusercontent.com/Roddy-D/Loon_plugins/refs/heads/main/plugin/iptest.lpx, enabled=true
-https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.lpx, enabled=true
-https://raw.githubusercontent.com/mekos2772/ios-location-spoofer/refs/heads/main/ios-location-spoofer.lnplugin, enabled=false
 https://kelee.one/Tool/Loon/Lpx/Amap_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx, enabled=true
-https://github.com/NSRingo/Maps/releases/latest/download/iRingo.Maps.plugin, enabled=true
 https://github.com/Auraflare/DNS/releases/latest/download/Cloudflare.DNS.plugin, enabled=true
-https://raw.githubusercontent.com/RayanceKing/Loon-plugins/main/TIDB%E5%A2%9E%E5%BC%BA.lpx, enabled=true
+https://raw.githubusercontent.com/RayanceKing/Loon-resource/refs/heads/main/plugins/TIDB增强.lpx, enabled=true
 http://script.hub/file/_start_/https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.conf/_end_/spotify.sgmodule?type=qx-rewrite&n=Spotify%E4%BC%9A%E5%91%98%E8%A7%A3%E9%94%81%40app2smile+%E8%A7%A3%E9%94%81Premium%E4%BC%9A%E5%91%98&headers=User-Agent:surge&del=true&jqEnabled=true&target=loon-plugin&category=app2smile, enabled=true
 https://ddgksf2013.top/module/ScriptHub.Loon.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
@@ -215,11 +214,8 @@ https://kelee.one/Tool/Loon/Lpx/PinDuoDuo_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/BaiduNetDisk_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Loon/AllInOne/AllInOne.plugin, enabled=true
-https://github.com/NSRingo/News/releases/latest/download/iRingo.News.plugin, policy=美国自动策略, enabled=false
-https://github.com/NSRingo/GeoServices/releases/latest/download/iRingo.Maps.plugin, enabled=false
 https://kelee.one/Tool/Loon/Lpx/XiaChuFang_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, policy=DIRECT, enabled=true
-https://kelee.one/Tool/Loon/Lpx/YouTube_remove_ads.lpx, enabled=false
 https://kelee.one/Tool/Loon/Lpx/Reddit_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy=兜底后备策略, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy=兜底后备策略, enabled=true
