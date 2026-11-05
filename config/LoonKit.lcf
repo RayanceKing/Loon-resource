@@ -1,4 +1,4 @@
-# LoonKit v1.0.0
+# LoonKit v1.0.1
 # Maintainer: @RayanceKing
 # GitHub: https://github.com/RayanceKing/Loon-resource
 # Community configuration; not affiliated with Loon.
@@ -57,10 +57,12 @@ Fallback_Filter = NameRegex, FilterKey = ".*"
 [Proxy Group]
 # --------------------------------
 # 基础策略
-Proxy = select,Auto,Fallback,ALL_Filter,img-url = https://raw.githubusercontent.com/YohakuSama/loonkit/97c48a5d14087597dbba35119d5ee8d43b1ce537/icons/v20261021r1/Proxy.png
-Auto = url-test,Auto_Filter,url = http://cp.cloudflare.com/generate_204,interval = 600,tolerance = 60,img-url = https://raw.githubusercontent.com/YohakuSama/loonkit/97c48a5d14087597dbba35119d5ee8d43b1ce537/icons/v20261021r1/Auto.png
-Fallback = fallback,Fallback_Filter,url = http://cp.cloudflare.com/generate_204,interval = 900,max-timeout = 2200,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
-Final = select,Proxy,Auto,Fallback,DIRECT,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+Proxy = select,Auto,Fallback,ALL_Filter,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bypass.png
+Auto = url-test,Auto_Filter,url = http://cp.cloudflare.com/generate_204,interval = 600,tolerance = 60,img-url = https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Auto.png
+Final = select,Proxy,Auto,DIRECT,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/Global.png
+# --------------------------------
+# 兜底策略后备
+兜底后备策略 = select,香港自动策略,台湾自动策略,日本自动策略,狮城自动策略,美国自动策略,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
 # --------------------------------
 # 地区策略
 香港手动策略 = select,香港节点,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/HK.png
@@ -100,9 +102,7 @@ Final = select,Proxy,Auto,Fallback,DIRECT,img-url = https://raw.githubuserconten
 韩国负载均衡 = load-balance,韩国节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/KR.png
 狮城负载均衡 = load-balance,狮城节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/SG.png
 美国负载均衡 = load-balance,美国节点,interval = 60,max-timeout = 2000,algorithm = pcc,img-url = https://raw.githubusercontent.com/Orz-3/mini/master/Color/US.png
-# --------------------------------
-# 兜底策略后备
-兜底后备策略 = select,香港自动策略,台湾自动策略,日本自动策略,狮城自动策略,美国自动策略,img-url = https://github.com/shindgewongxj/WHATSINStash/raw/main/icon/fallback.png
+
 
 [Proxy Chain]
 美国静态策略 = 美国手动策略, udp=true
@@ -123,9 +123,7 @@ DOMAIN-KEYWORD,ouo,DIRECT
 DOMAIN,www.formula1.com,美国自动策略
 DOMAIN-KEYWORD,icloud,DIRECT
 DOMAIN-KEYWORD,ping0.cc,美国静态策略
-DOMAIN,updates.cdn-apple.com,DIRECT
 DOMAIN-KEYWORD,appstorrent,DIRECT
-DOMAIN,query.ess.apple.com,DIRECT
 DOMAIN-KEYWORD,notability,狮城自动策略
 DOMAIN,msmp.abchina.com.cn,REJECT
 DOMAIN-KEYWORD,hotmail,DIRECT
@@ -144,31 +142,34 @@ IP-CIDR,28.0.0.1/8,DIRECT
 IP-CIDR,198.18.0.1/16,DIRECT
 IP-CIDR,198.18.0.0/15,DIRECT
 IP-CIDR6,fc00::/18,DIRECT
-FINAL,狮城自动策略
+FINAL,兜底后备策略
 
 [Remote Rule]
 https://raw.githubusercontent.com/yuumimi/rules/release/loon/18comic.txt, policy=狮城自动策略, tag=18comic, enabled=true
-https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/iCloudPrivateRelay/iCloudPrivateRelay.list, policy=美国手动策略, tag=iCloudPrivateRelay, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AI.lsr, policy=美国手动策略, tag=AI, enabled=true
 https://rule.kelee.one/Loon/AppleTV.lsr, policy=美国手动策略, tag=AppleTV, enabled=true
+https://raw.githubusercontent.com/RocM301/Apple-Rule/refs/heads/main/Apple%20AI-New, policy=美国自动策略, tag=Apple Intelligence, enabled=true
 https://raw.githubusercontent.com/ddgksf2013/Filter/refs/heads/master/AppleIntelligence.list, policy=美国手动策略, tag=Apple Intelligence, enabled=true
-https://raw.githubusercontent.com/iniwex5/tools/refs/heads/main/rules/UK-wifi-call.list, policy=全球手动策略, tag=UK-wifi-call, enabled=true
+https://rule.kelee.one/Loon/Disney.lsr, policy=美国手动策略, tag=Disney, enabled=true
+https://rule.kelee.one/Loon/Duckduckgo.lsr, policy=狮城时延优选, tag=Duckduckgo, enabled=true
+https://rule.kelee.one/Loon/Facebook.lsr, policy=美国手动策略, tag=Facebook, enabled=true
+https://rule.kelee.one/Loon/GitHub.lsr, policy=香港自动策略, tag=GitHub, enabled=true
+https://rule.kelee.one/Loon/Google.lsr, policy=美国手动策略, tag=Google, enabled=true
+https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/iCloudPrivateRelay/iCloudPrivateRelay.list, policy=美国手动策略, tag=iCloudPrivateRelay, enabled=true
+https://rule.kelee.one/Loon/Instagram.lsr, policy=美国手动策略, tag=Instagram, enabled=true
+https://rule.kelee.one/Loon/Netflix.lsr, policy=狮城手动策略, tag=Netflix, enabled=true
+https://rule.kelee.one/Loon/OneDrive.lsr, policy=香港时延优选, tag=OneDrive, enabled=true
+https://rule.kelee.one/Loon/Spotify.lsr, policy=香港自动策略, tag=Spotify, enabled=true
 https://rule.kelee.one/Loon/Telegram.lsr, policy=香港自动策略, tag=Telegram, enabled=true
 https://kelee.one/Tool/Loon/Lsr/TikTok.lsr, policy=美国手动策略, tag=TikTok, enabled=true
-https://rule.kelee.one/Loon/GitHub.lsr, policy=香港自动策略, tag=GitHub, enabled=true
-https://rule.kelee.one/Loon/Netflix.lsr, policy=狮城手动策略, tag=Netflix, enabled=true
-https://rule.kelee.one/Loon/YouTube.lsr, policy=美国手动策略, tag=Youtube, enabled=true
-https://rule.kelee.one/Loon/Google.lsr, policy=美国手动策略, tag=Google, enabled=true
-https://rule.kelee.one/Loon/Disney.lsr, policy=美国手动策略, tag=Disney, enabled=true
 https://rule.kelee.one/Loon/Twitter.lsr, policy=美国手动策略, tag=Twitter, enabled=true
-https://rule.kelee.one/Loon/Instagram.lsr, policy=美国手动策略, tag=Instagram, enabled=true
+https://raw.githubusercontent.com/iniwex5/tools/refs/heads/main/rules/UK-wifi-call.list, policy=全球手动策略, tag=UK-wifi-call, enabled=true
 https://rule.kelee.one/Loon/Whatsapp.lsr, policy=美国手动策略, tag=Whatsapp, enabled=true
-https://rule.kelee.one/Loon/Facebook.lsr, policy=美国手动策略, tag=Facebook, enabled=true
-https://rule.kelee.one/Loon/Spotify.lsr, policy=香港自动策略, tag=Spotify, enabled=true
-https://rule.kelee.one/Loon/OneDrive.lsr, policy=香港时延优选, tag=OneDrive, enabled=true
-https://rule.kelee.one/Loon/WeChat.lsr, policy=DIRECT, tag=WeChat, enabled=true
+https://rule.kelee.one/Loon/YouTube.lsr, policy=美国手动策略, tag=Youtube, enabled=true
+https://raw.githubusercontent.com/yuumimi/rules/release/loon/apple-update.txt, policy=DIRECT, tag=Apple Update, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AppleAccount.lsr, policy=DIRECT, tag=Apple Account, enabled=true
 https://kelee.one/Tool/Loon/Lsr/AppStore.lsr, policy=DIRECT, tag=App Store, enabled=true
+https://rule.kelee.one/Loon/WeChat.lsr, policy=DIRECT, tag=WeChat, enabled=true
 https://kelee.one/Tool/Loon/Lsr/LAN_SPLITTER.lsr, policy=DIRECT, tag=LAN, enabled=true
 https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGION, enabled=true
 
@@ -179,8 +180,8 @@ https://kelee.one/Tool/Loon/Lsr/REGION_SPLITTER.lsr, policy=DIRECT, tag=CN REGIO
 [Script]
 
 [Plugin]
+https://raw.githubusercontent.com/kokoryh/Sparkle/refs/heads/master/release/loon/plugin/bilibili.lpx, policy=DIRECT, enabled=true
 https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit.lpx, enabled=true
-https://github.com/NSRingo/LocationService/releases/latest/download/iRingo.LocationService.plugin, enabled=false
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, pin=true, enabled=true
@@ -199,7 +200,6 @@ https://kelee.one/Tool/Loon/Lpx/JD_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QuarkBrowser_remove_ads.lpx, enabled=true
 https://github.com/Auraflare/DNS/releases/latest/download/Cloudflare.DNS.plugin, enabled=true
 https://raw.githubusercontent.com/RayanceKing/Loon-resource/refs/heads/main/plugins/TIDB增强.lpx, enabled=true
-http://script.hub/file/_start_/https://raw.githubusercontent.com/app2smile/rules/master/module/spotify.conf/_end_/spotify.sgmodule?type=qx-rewrite&n=Spotify%E4%BC%9A%E5%91%98%E8%A7%A3%E9%94%81%40app2smile+%E8%A7%A3%E9%94%81Premium%E4%BC%9A%E5%91%98&headers=User-Agent:surge&del=true&jqEnabled=true&target=loon-plugin&category=app2smile, enabled=true
 https://ddgksf2013.top/module/ScriptHub.Loon.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/FleaMarket_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/RedPaper_remove_ads.lpx, enabled=true
@@ -214,7 +214,7 @@ https://kelee.one/Tool/Loon/Lpx/BaiduNetDisk_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/QQ_Redirect.lpx, enabled=true
 https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rewrite/Loon/AllInOne/AllInOne.plugin, enabled=true
 https://kelee.one/Tool/Loon/Lpx/XiaChuFang_remove_ads.lpx, enabled=true
-https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, policy=DIRECT, enabled=true
+https://kelee.one/Tool/Loon/Lpx/Bilibili_remove_ads.lpx, policy=DIRECT, enabled=false
 https://kelee.one/Tool/Loon/Lpx/Reddit_remove_ads.lpx, enabled=true
 https://kelee.one/Tool/Loon/Lpx/LoonGallery.lpx, policy=兜底后备策略, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Prevent_DNS_Leaks.lpx, policy=兜底后备策略, enabled=true
