@@ -7,7 +7,7 @@
 # DNS：优先使用 AliDNS DoH；普通 DNS 回退由 Loon 应用设置控制。
 dns-server = 223.5.5.5,223.6.6.6
 doh-server = https://dns.adguard.com/dns-query
-real-ip = 149.119.189.173,*.apple.com,*.icloud.com,dns.msftncsi.com,*.srv.nintendo.net,*.xboxlive.com
+real-ip = *.apple.com,*.icloud.com,dns.msftncsi.com,*.srv.nintendo.net,*.xboxlive.com
 mitm-on-wifi-access = true
 hijack-dns = *:53
 # DNS 劫持覆盖 UDP/53，不包含应用内置的 DoH/DoT 请求。
