@@ -1,0 +1,65 @@
+#!name = AppleFlow · Apple 智能与中文 Siri 分流
+#!desc = 零 MitM 极简分流：保障中文 Siri 与普通话来电筛选真实 IP 直连，将 Apple Intelligence PCC 与 ChatGPT/视觉智能置顶分流至美区策略组。
+#!openUrl = https://kianuni.github.io/AppleFlow/
+#!author = Kianuni[https://github.com/Kianuni/AppleFlow]
+#!homepage = https://github.com/Kianuni/AppleFlow
+#!icon = https://github.com/RayanceKing/Loon-resource/raw/main/src/Siri.AI.png
+#!system = ios, ipados, macos
+#!version = 1.0.1
+
+[Argument]
+Proxies.US = input,"🇺🇸 美国节点",tag=[🇺🇸 美国] 代理策略名称,desc=请填写此地区的代理或策略组名称。
+
+[General]
+skip-proxy = guzzoni.apple.com
+real-ip = guzzoni.apple.com, *.guzzoni.apple.com, *.siri.apple.com, dejavu.apple.com, sequoia.apple.com, *.smoot.apple.com, *.push.apple.com
+
+[Rule]
+# 1. 中文 Siri 与普通话来电筛选直连
+DOMAIN-SUFFIX, guzzoni.apple.com, DIRECT
+DOMAIN-SUFFIX, siri.apple.com, DIRECT
+DOMAIN, dejavu.apple.com, DIRECT
+DOMAIN, sequoia.apple.com, DIRECT
+DOMAIN-SUFFIX, smoot.apple.com, DIRECT
+
+# 2. Apple Intelligence PCC 隐私云计算与区域准入
+DOMAIN, gspe1-ssl.ls.apple.com, Proxies.US
+DOMAIN-SUFFIX, issuer.apple.com, Proxies.US
+DOMAIN-SUFFIX, ropes.apple.com, Proxies.US
+DOMAIN, mask-api.icloud.com, Proxies.US
+DOMAIN, mask.icloud.com, Proxies.US
+DOMAIN, mask-h2.icloud.com, Proxies.US
+DOMAIN, ss-cleanup-proxy-prod.us-east-1m.app.apple.com, Proxies.US
+DOMAIN-SUFFIX, app.apple.com, Proxies.US
+DOMAIN-SUFFIX, apple-relay.apple.com, Proxies.US
+DOMAIN-SUFFIX, apple-relay.cloudflare.com, Proxies.US
+DOMAIN-SUFFIX, apple-relay.fastly-edge.com, Proxies.US
+DOMAIN-SUFFIX, apple-relay.akamaized.net, Proxies.US
+DOMAIN-SUFFIX, cp4.cloudflare.com, Proxies.US
+
+# 3. Siri ChatGPT 扩展与视觉智能
+DOMAIN-SUFFIX, openai.com, Proxies.US
+DOMAIN-SUFFIX, chatgpt.com, Proxies.US
+DOMAIN-SUFFIX, chat.com, Proxies.US
+DOMAIN-SUFFIX, sora.com, Proxies.US
+DOMAIN-SUFFIX, oaistatic.com, Proxies.US
+DOMAIN-SUFFIX, oaiusercontent.com, Proxies.US
+DOMAIN-SUFFIX, oaistatsig.com, Proxies.US
+DOMAIN-SUFFIX, openai.com.cdn.cloudflare.net, Proxies.US
+DOMAIN, openai-api.arkoselabs.com, Proxies.US
+DOMAIN-SUFFIX, chatgpt.livekit.cloud, Proxies.US
+DOMAIN-SUFFIX, host.livekit.cloud, Proxies.US
+DOMAIN-SUFFIX, turn.livekit.cloud, Proxies.US
+DOMAIN, lens.google.com, Proxies.US
+DOMAIN-SUFFIX, gemini.google.com, Proxies.US
+DOMAIN, gemini.gstatic.com, Proxies.US
+DOMAIN, generativelanguage.googleapis.com, Proxies.US
+DOMAIN, proactivebackend-pa.googleapis.com, Proxies.US
+DOMAIN, robinfrontend-pa.googleapis.com, Proxies.US
+DOMAIN, aistudio.google.com, Proxies.US
+DOMAIN, alkalimakersuite-pa.clients6.google.com, Proxies.US
+DOMAIN-SUFFIX, deepmind.google, Proxies.US
+DOMAIN-SUFFIX, anthropic.com, Proxies.US
+DOMAIN-SUFFIX, claude.ai, Proxies.US
+DOMAIN-SUFFIX, claude.com, Proxies.US
+DOMAIN-SUFFIX, claudeusercontent.com, Proxies.US

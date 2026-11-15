@@ -35,7 +35,7 @@ skip-proxy = 127.0.0.0/8,192.168.0.0/16,10.0.0.0/8,172.16.0.0/12,localhost,*.loc
 bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
 
 [Proxy]
-德州 = Socks5,149.119.189.173,443,qkX51103188,"daCBNLin",udp=true,block-quic=true
+
 
 [Remote Proxy]
 # 节点和订阅由用户自行添加。
@@ -105,7 +105,7 @@ Final = select,Proxy,Auto,DIRECT,img-url = https://raw.githubusercontent.com/Orz
 
 
 [Proxy Chain]
-美国静态策略 = 美国手动策略, udp=true
+
 
 [Rule]
 DOMAIN-KEYWORD,hanimeone,狮城手动策略
