@@ -185,6 +185,7 @@ https://github.com/NSRingo/WeatherKit/releases/latest/download/iRingo.WeatherKit
 https://kelee.one/Tool/Loon/Lpx/BlockAdvertisers.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Block_HTTPDNS.lpx, pin=true, enabled=true
 https://kelee.one/Tool/Loon/Lpx/Remove_ads_by_keli.lpx, pin=true, enabled=true
+https://raw.githubusercontent.com/RayanceKing/Loon-resource/refs/heads/main/plugins/AppleFlow.lpx, enabled=true
 https://raw.githubusercontent.com/Script-Hub-Org/Script-Hub/main/modules/script-hub.loon.plugin, policy=香港自动策略, enabled=true
 https://github.com/DualSubs/YouTube/releases/latest/download/DualSubs.YouTube.plugin, enabled=true
 https://github.com/Biliverse/Redirect/releases/latest/download/BiliBili.Redirect.plugin, enabled=true
